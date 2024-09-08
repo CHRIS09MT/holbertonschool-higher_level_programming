@@ -3,4 +3,3 @@ import sys
 
 if __name__ == "__main__":
     print("{}".format(sum(int(sys.argv[i]) for i in range(1, len(sys.argv)))))
-    
