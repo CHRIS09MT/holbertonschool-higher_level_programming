@@ -56,6 +56,6 @@ Now use it:
     -5
 
 
-    Test 08: Adding results of expressions
-    >>> add_integer(2 + 2, -3)
-    1
+    Test 08: Handling large integers
+    >>> add_integer(2**100, 2**100)
+    2535301200456458802993406410752
