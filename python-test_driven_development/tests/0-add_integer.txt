@@ -4,46 +4,58 @@ The ``0-add_integer`` module
 Using ``add_integer``
 ---------------------
 
-This is an example text file in reStructuredText format. First import
+This module provides the function `add_integer` which performs integer addition with type checking.
+
+To use the `add_integer` function, you can dynamically import it from the `0-add_integer` module as follows:
+
 ``add_integer`` from the ``0-add_integer`` module using dynamic import:
 
-	Test 00: 
+	Test 00:  Basic addition
     >>> add_integer = __import__('0-add_integer').add_integer
 
 Now use it:
 
-	Test 01:
+
+	Test 01: Adding positive and negative integers
     >>> add_integer(1, 2)
     3
 
-	Test 02:
+
+	Test 02: Handling float input
     >>> add_integer(100, -2)
     98
 
-	Test 03:
+
+	Test 03: Handling incorrect type for second argument.
     >>> add_integer(100.3, -2)
     98
 
-	Test 04:
+
+	Test 04: Handling incorrect type for first argument.
     >>> add_integer(4, "School")
     Traceback (most recent call last):
       ...
     TypeError: b must be an integer
 
-    Test 05:
+
+    Test 05: Single argument with default value
+
     >>> add_integer(None)
     Traceback (most recent call last):
       ...
     TypeError: a must be an integer
 
-    Test 06:
+
+    Test 06: Single argument with default value.
     >>> add_integer(2)
     100
 
-    Test 07:
+
+    Test 07: Adding two negative integers
     >>> add_integer(-2, -3)
     -5
 
-    Test 08:
+
+    Test 08: Adding results of expressions
     >>> add_integer(2 + 2, -3)
     1
