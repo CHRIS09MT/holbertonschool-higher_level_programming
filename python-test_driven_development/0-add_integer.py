@@ -15,6 +15,9 @@ def add_integer(a, b=98):
     
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
+    
+    if abs(a)==float('inf'):
+        raise OverflowError("cannot convert float infinity to integer")
 
     a = int(a)
     b = int(b)

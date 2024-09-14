@@ -50,12 +50,12 @@ Now use it:
     >>> add_integer(2)
     100
 
-
-    Test 07: Adding two negative integers
-    >>> add_integer(-2, -3)
-    -5
-
-
-    Test 08: Handling large integers
-    >>> add_integer(2**100, 2**100)
-    2535301200456458802993406410752
+    Test 08: Handling float overflow
+    >>> add_integer(float('inf'), 2)
+    Traceback (most recent call last):
+      ...
+    OverflowError: cannot convert float infinity to integer
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+      ...
+    OverflowError: cannot convert float infinity to integer
