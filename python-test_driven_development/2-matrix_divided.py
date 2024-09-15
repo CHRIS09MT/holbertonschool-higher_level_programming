@@ -3,37 +3,48 @@
 """
 Module: matrix_divided
 
-This module contains a function `matrix_divided` that performs element-wise division on a matrix.
+This module contains a function `matrix_divided` that performs element-wise -
+division on a matrix.
 The matrix is a list of lists containing integers or floats.
-The function ensures the matrix is properly formatted and the divisor is valid before performing the division.
+The function ensures the matrix is properly formatted and the divisor is -
+valid before performing the division.
 
 Function:
-    matrix_divided(matrix, div)
+matrix_divided(matrix, div)
 
 Arguments:
-    matrix (list of lists of int/float): A matrix represented as a list of lists. Each element in the matrix must be an integer or a float.
-    All rows in the matrix must have the same number of columns.
-    div (int/float): The divisor used to divide each element of the matrix. It must be either an integer or a float and cannot be zero.
+matrix: A matrix represented as a -
+list of lists.
+Each element in the matrix must be an integer or a float.
+All rows in the matrix must have the same number of columns.
+div (int/float): The divisor used to divide each element of the matrix.
+It must be either an integer or a float and cannot be zero.
 
 Returns:
-    list of lists of float: A new matrix where each element has been divided by `div` and rounded to 2 decimal places.
+list of lists of float: A new matrix where each element has been divided -
+by `div` and rounded to 2 decimal places.
 """
+
 
 def matrix_divided(matrix, div):
     """
     Divides all elements of a matrix by a divisor.
 
     Args:
-        matrix (list of lists of int/float): A matrix where each element is an integer or float.
+        matrix: A matrix where each element is an integer or float.
     """
 
     if not isinstance(matrix, list):
-        raise TypeError("""matrix must be a matrix (list of lists)
-                        of integers/floats""")
+        raise TypeError(
+            """matrix must be a matrix (list of lists)
+                        of integers/floats"""
+        )
 
     if not all(isinstance(row, list) for row in matrix):
-        raise TypeError("""matrix must be a matrix (list of lists)
-                        of integers/floats""")
+        raise TypeError(
+            """matrix must be a matrix (list of lists)
+                        of integers/floats"""
+        )
 
     for row in matrix:
         if not all(isinstance(element, (int, float)) for element in row):
