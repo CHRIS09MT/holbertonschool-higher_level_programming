@@ -10,19 +10,21 @@ def text_indentation(text):
     Prints text with two new lines after '.', '?', and ':'.
     Raises TypeError if the input is not a string.
     """
+    
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    result = ""
     i = 0
-
+    result = ""
+    
     while i < len(text):
-        result += text[i]
-        if text[i] in ".?:":
-            result += "\n\n"
-            while i + 1 < len(text) and text[i + 1] == " ":
+        if text[i] in ".?:":  # Si encuentra un signo de puntuación
+            result += text[i] + "\n\n"  # Agrega el signo y dos saltos de línea
+            i += 1
+            while i < len(text) and text[i] == " ":  # Saltar espacios adicionales
                 i += 1
+            continue
+        result += text[i]
         i += 1
 
-    print('\n'.join(line.strip() for line in result.split('\n')))
-
+    print(result.rstrip())  # Elimina cualquier espacio o salto extra al final
