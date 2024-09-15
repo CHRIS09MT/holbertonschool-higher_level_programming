@@ -1,5 +1,17 @@
 #!/usr/bin/python3
+"""
+This module defines a function `print_square` to print a square of hash
+(`#`) characters based on the given size.
+"""
+
+
 def print_square(size):
+    """
+    Prints a square of hash (`#`) characters.
+
+    Args:
+        size (int): The size of the square. Must be a non-negative integer.
+    """
 
     if not isinstance(size, int):
         raise TypeError("size must be an integer")
