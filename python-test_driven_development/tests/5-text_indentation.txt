@@ -31,7 +31,6 @@ To use the `text_identation` function, you can dynamically import it from the `5
 	<BLANKLINE>
 	Consectetur adipiscing elit?
 	<BLANKLINE>
-	<BLANKLINE>
 
 	Test 04:
 	>>> text_indentation()
