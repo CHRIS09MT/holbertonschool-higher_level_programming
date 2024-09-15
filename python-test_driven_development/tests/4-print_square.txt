@@ -52,3 +52,8 @@ Now use it:
 	Traceback (most recent call last):
         ...
 	TypeError: size must be an integer
+
+
+	Test 05:
+	>>> print_square(1)
+	#
