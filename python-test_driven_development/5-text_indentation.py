@@ -10,7 +10,6 @@ def text_indentation(text):
     Prints text with two new lines after '.', '?', and ':'.
     Raises TypeError if the input is not a string.
     """
-
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
@@ -21,11 +20,9 @@ def text_indentation(text):
         result += text[i]
         if text[i] in ".?:":
             result += "\n\n"
-
             while i + 1 < len(text) and text[i + 1] == " ":
                 i += 1
         i += 1
-        
-    result = result.rstrip()
 
-    print(result)
+    print('\n'.join(line.strip() for line in result.split('\n')))
+
