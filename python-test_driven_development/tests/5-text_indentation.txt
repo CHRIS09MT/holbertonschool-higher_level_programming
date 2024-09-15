@@ -16,3 +16,25 @@ To use the `text_identation` function, you can dynamically import it from the `5
 	Test 01:
 	>>> text_indentation("Holberton School")
 	Holberton School
+
+
+	Test 02:
+	>>> text_indentation(12)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+
+	Test 03:
+	>>> text_indentation("Lorem ipsum dolor sit amet. Consectetur adipiscing elit?")
+	Lorem ipsum dolor sit amet.
+	<BLANKLINE>
+	Consectetur adipiscing elit?
+	<BLANKLINE>
+	<BLANKLINE>
+
+	Test 04:
+	>>> text_indentation()
+	Traceback (most recent call last):
+		...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
