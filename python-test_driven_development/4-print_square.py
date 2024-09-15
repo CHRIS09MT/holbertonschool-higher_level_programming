@@ -18,6 +18,9 @@ def print_square(size):
 
     if size < 0:
         raise ValueError("size must be >= 0")
+    
+    if size is None:
+        raise ValueError("size cannot be None")
 
     for i in range(size):
         for j in range(size):
