@@ -25,5 +25,6 @@ def text_indentation(text):
                 i += 1
         i += 1
 
-    print('\n'.join(line.strip() for line in result.split('\n')))
+    formatted_result = '\n'.join(line.strip() for line in result.split('\n'))
 
+    print(formatted_result, end="")
