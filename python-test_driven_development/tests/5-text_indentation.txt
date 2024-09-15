@@ -1,0 +1,13 @@
+The ``5-text_identation`` module
+=============================
+
+Using ``text_identation``
+---------------------
+
+To use the `text_identation` function, you can dynamically import it from the `5-text_identation` module as follows:
+
+``text_identation`` from the ``5-text_identation`` module using dynamic import:
+
+
+	Test 00:
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
