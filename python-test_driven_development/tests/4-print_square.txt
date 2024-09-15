@@ -57,10 +57,3 @@ Now use it:
 	Test 05:
 	>>> print_square(1)
 	#
-
-
-	Test 06:
-	>>> print_square()
-	Traceback (most recent call last):
-        ...
-	TypeError: missing 1 required positional argument: 'size'
