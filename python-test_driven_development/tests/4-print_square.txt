@@ -63,4 +63,4 @@ Now use it:
 	>>> print_square()
 	Traceback (most recent call last):
         ...
-	ValueError: size cannot be None
+	TypeError: missing 1 required positional argument: 'size'
