@@ -11,3 +11,8 @@ To use the `text_identation` function, you can dynamically import it from the `5
 
 	Test 00:
 	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+	Test 01:
+	>>> text_indentation("Holberton School")
+	Holberton School
