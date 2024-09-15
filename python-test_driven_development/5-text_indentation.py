@@ -5,7 +5,6 @@ Adds two new lines after each '.', '?', and ':' in the text.
 Ensures the input is a valid string and handles formatting.
 """
 
-
 def text_indentation(text):
     """
     Prints text with two new lines after '.', '?', and ':'.
@@ -22,6 +21,7 @@ def text_indentation(text):
         result += text[i]
         if text[i] in ".?:":
             result += "\n\n"
+
             while i + 1 < len(text) and text[i + 1] == " ":
                 i += 1
         i += 1
