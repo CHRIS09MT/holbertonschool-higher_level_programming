@@ -1,0 +1,51 @@
+The ``2-matrix_divided`` module
+=============================
+
+Using ``matrix_divided``
+---------------------
+
+This module provides the function `matrix_divided` which performs integer addition with type checking.
+
+To use the `matrix_divided` function, you can dynamically import it from the `2-matrix_divided` module as follows:
+
+``matrix_divided`` from the ``2-matrix_divided`` module using dynamic import:
+
+	Test 00: Basic addition
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Now use it:
+
+	Test 01:
+	>>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+
+	Test 02:
+	>>> matrix = [[1, 2], [3, 4]]
+    >>> matrix_divided(matrix, 2)
+    [[0.5, 1.0], [1.5, 2.0]]
+
+
+	Test 03:
+	>>> matrix = [[1, 'a'], [3, 4]]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+	Test 04:
+	>>> matrix = [[1, 2], [3, 4]]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+
+	Test 05:
+	>>> matrix = [[1, 2], [3, 4]]
+    >>> matrix_divided(matrix, 'a')
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
