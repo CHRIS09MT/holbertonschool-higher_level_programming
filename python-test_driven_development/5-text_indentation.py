@@ -5,6 +5,7 @@ Adds two new lines after each '.', '?', and ':' in the text.
 Ensures the input is a valid string and handles formatting.
 """
 
+
 def text_indentation(text):
     """
     Prints text with two new lines after '.', '?', and ':'.
@@ -25,6 +26,6 @@ def text_indentation(text):
                 i += 1
         i += 1
 
-    formatted_result = '\n'.join(line.strip() for line in result.split('\n'))
+    formatted_result = "\n".join(line.strip() for line in result.split("\n"))
 
     print(formatted_result, end="")
