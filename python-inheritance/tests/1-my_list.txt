@@ -1,0 +1,16 @@
+The ``1-my_list`` module
+=============================
+
+Using ``print_sorted``
+---------------------
+
+This module provides the function `print_sorted` which performs integer addition with type checking.
+
+To use the `print_sorted` function, you can dynamically import it from the `0-add_integer` module as follows:
+
+``print_sorted`` from the ``1-my_list`` module using dynamic import:
+
+	Test 00:  Basic addition
+    >>> MyList = __import__('1-my_list').MyList
+
+Now use it:
