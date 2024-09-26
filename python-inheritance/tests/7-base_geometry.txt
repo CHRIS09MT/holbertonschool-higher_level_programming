@@ -4,6 +4,11 @@ The ``7-base_geometry`` module
 Using ``integer_validator``
 ---------------------
 
+This module provides the function `integer_validator` which performs validation to check if a value is an integer and greater than 0.
+
+To use the `integer_validator` function, you can dynamically import it from the `7-base_geometry` module as follows:
+
+``integer_validator`` from the ``7-base_geometry`` module using dynamic import:
 
 	Test 00:
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
