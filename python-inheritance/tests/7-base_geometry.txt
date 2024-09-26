@@ -9,3 +9,81 @@ Using ``integer_validator``
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Now use it:
+
+
+	Test 01:
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", 1)
+
+
+	Test 02:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+
+	Test 03:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", -4)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+	
+
+	Test 04:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", "4")
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+
+	Test 05:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+
+	Test 06:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+
+	Test 07:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+
+	Test 08:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+
+	Test 09:
+    
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
