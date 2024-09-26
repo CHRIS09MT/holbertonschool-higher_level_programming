@@ -1,0 +1,11 @@
+The ``7-base_geometry`` module
+=============================
+
+Using ``integer_validator``
+---------------------
+
+
+	Test 00:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Now use it:
