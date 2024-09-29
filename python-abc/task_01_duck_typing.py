@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-import math
 
 
 class Shape(ABC):
@@ -30,14 +29,14 @@ class Circle(Shape):
     """
 
     def area(self):
-        return math.pi * (self.radius**2)
+        return abs(3.141592653589793 * self.__radius**2)
 
     """
     Implement the 'perimeter' method to calculate the perimeter of the circle
     """
 
     def perimeter(self):
-        return 2 * math.pi * self.radius
+        return abs(2 * 3.141592653589793 * self.__radius)
 
     """
     'Rectangle' class that inherits from 'Shape'
