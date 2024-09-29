@@ -23,21 +23,21 @@ class Shape(ABC):
 
 class Circle(Shape):
     def __init__(self, radius):
-        self.radius = radius
+        self.__radius = radius
 
     """
     Implement the 'area' method to calculate the area of the circle
     """
 
     def area(self):
-        return math.pi * (self.radius**2)
+        return math.pi * (self.__radius**2)
 
     """
     Implement the 'perimeter' method to calculate the perimeter of the circle
     """
 
     def perimeter(self):
-        return 2 * math.pi * self.radius
+        return 2 * math.pi * self.__radius
 
     """
     'Rectangle' class that inherits from 'Shape'
@@ -46,15 +46,15 @@ class Circle(Shape):
 
 class Rectangle(Shape):
     def __init__(self, width, height):
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
 
     """
     Implement the 'area' method to calculate the area of ​​the rectangle
     """
 
     def area(self):
-        return self.width * self.height
+        return self.__width * self.__height
 
     """
     Implement the 'perimeter' method to calculate the perimeter
@@ -62,7 +62,7 @@ class Rectangle(Shape):
     """
 
     def perimeter(self):
-        return 2 * (self.height + self.width)
+        return 2 * (self.__height + self.__width)
 
 
 """
@@ -71,6 +71,6 @@ class Rectangle(Shape):
 """
 
 
-def shape_info(shape):
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
+def shape_info(object):
+    print(f"Area: {object.area()}")
+    print(f"Perimeter: {object.perimeter()}")
