@@ -1,65 +1,41 @@
+"""Module provides definition of Fish, Bird and FlyingFish classes"""
+
+
 class Fish:
-    """
-    Represents a fish with swimming abilities.
-    """
+    """The definition of the Fish class"""
 
     def swim(self):
-        """
-        Make the fish swim.
-        """
-
+        """prints a message to the console"""
         print("The fish is swimming")
 
     def habitat(self):
-        """
-        Describe the fish's habitat.
-        """
-
+        """prints a message to the console"""
         print("The fish lives in water")
 
 
 class Bird:
-    """
-    Represents a bird with flying abilities.
-    """
+    """The definition of the Bird class"""
 
     def fly(self):
-        """
-        Make the bird fly.
-        """
-
+        """prints a message to the console"""
         print("The bird is flying")
 
     def habitat(self):
-        """
-        Describe the bird's habitat.
-        """
-
+        """prints a message to the console"""
         print("The bird lives in the sky")
 
 
 class FlyingFish(Fish, Bird):
-    """
-    Represents a flying fish that can both swim and fly.
-    """
+    """defines a FlyingFish"""
 
     def fly(self):
-        """
-        Make the flying fish soar through the air.
-        """
-
-        print("The flying fish is swimming!")
-
-    def swim(self):
-        """
-        Make the flying fish swim.
-        """
-
+        """prints a message to the console"""
         print("The flying fish is soaring!")
 
-    def habitat(self):
-        """
-        Describe the flying fish's habitat in both water and the sky.
-        """
+    def swim(self):
+        """prints a message to the console"""
+        print("The flying fish is swimming!")
 
+    def habitat(self):
+        """prints a message to the console"""
         print("The flying fish lives both in water and the sky!")
