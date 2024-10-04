@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+creating a object
 """
 
 import json
@@ -7,7 +8,7 @@ import json
 
 def load_from_json_file(filename):
     """
-    Read a file
+    creating a object
     """
 
     with open(filename, "r") as file:
