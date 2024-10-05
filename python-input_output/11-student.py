@@ -19,9 +19,11 @@ class Student:
         returns the dictionary description with simple data structure
         """
 
-        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
+        if isinstance(attrs, list) and all(isinstance(attr, str)
+                                           for attr in attrs):
             filtered_dict = {
-                attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)
+                attr: getattr(self, attr)
+                for attr in attrs if hasattr(self, attr)
             }
             return filtered_dict
         else:
