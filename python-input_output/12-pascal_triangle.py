@@ -5,6 +5,10 @@ creating a pascal triangle
 
 
 def pascal_triangle(n):
+    """
+    creating a pascal triangle
+    """
+
     if n <= 0:
         return []
 
