@@ -41,7 +41,14 @@ class CustomObject:
         """
         Deserializes a file and returns a CustomObject instance.
         """
-
-        with open(filename, "rb") as file:
-            data = pickle.load(file)
-            return data
+        try:
+            with open(filename, "rb") as file:
+                data = pickle.load(file)
+                if isinstance(data, cls):
+                    return data
+                else:
+                    return None
+        except (pickle.UnpicklingError, FileNotFoundError, IOError) as e:
+            print(f"{e}")
+            return None
+        return data
