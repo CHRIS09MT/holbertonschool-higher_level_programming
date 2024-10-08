@@ -48,7 +48,6 @@ class CustomObject:
                     return data
                 else:
                     return None
-        except (pickle.UnpicklingError, FileNotFoundError, IOError) as e:
+        except (pickle.UnpicklingError, EOFError, FileNotFoundError, IOError) as e:
             print(f"{e}")
             return None
-        return data
