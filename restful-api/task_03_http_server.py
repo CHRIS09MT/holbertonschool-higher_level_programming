@@ -42,7 +42,8 @@ class SimpleBaseHTTPRequestHandler(BaseHTTPRequestHandler):
         self.send_response(404)
         self.send_header("Content-Type", "text/html")
         self.end_headers()
-        self.wfile.write(b"404 Not Found")
+        error_message = {"error": "Not Found"}
+        self.wfile.write(json.dumps(error_message).encode())
 
 
 def run(server_class=HTTPServer, handler_class=SimpleBaseHTTPRequestHandler, port=8000):
