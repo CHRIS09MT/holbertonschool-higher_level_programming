@@ -4,46 +4,20 @@ import json
 class SimpleBaseHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-
-        data = {"name": "John", "age": 30, "city": "New York"}
-        info = {"version": "1.0", "description": "A simple API built with http.server"}
-
-        if self.path == '/data':
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            response_json = json.dumps(data)
-            self.wfile.write(response_json.encode())
-            return
+        routes = {
+            '/data': lambda: self.send_json_response({"name": "John", "age": 30, "city": "New York"}),
+            '/status': lambda: self.send_text_response("OK"),
+            '/info': lambda: self.send_json_response({"version": "1.0", "description": "A simple API built with http.server"}),
+            '/': lambda: self.send_text_response("Hello, this is a simple API!", content_type="text/html"),
+            }
         
-        elif self.path == '/status':
-            self.send_response(200)
-            self.send_header("Content-Type", "text/plain")
-            self.end_headers()
-            self.wfile.write(b"OK")
-            return
-        
-        elif self.path == '/info':
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            response_json = json.dumps(info)
-            self.wfile.write(response_json.encode())
-            return
-
-        elif self.path == '/':
-            self.send_response(200)
-            self.send_header("Content-Type", "text/html")
-            self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")
-            return
-        
+        handler = routes.get(self.path)
+        if handler:
+            handler()
         else:
-            self.send_response(404)
-            self.send_header("Content-Type", "text/html")
-            self.end_headers()
             error_message = f"404 Not Found: {self.path}"
-            self.wfile.write(error_message.encode())
+            self.send_text_response(error_message, status=404, content_type="text/html")
+
 
  
 
