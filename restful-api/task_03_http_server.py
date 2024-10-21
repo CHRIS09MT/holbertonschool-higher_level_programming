@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
@@ -16,15 +15,15 @@ class SimpleBaseHTTPRequestHandler(BaseHTTPRequestHandler):
             response_json = json.dumps(data)
             self.wfile.write(response_json.encode())
             return
-
-        if self.path == '/status':
+        
+        elif self.path == '/status':
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK")
             return
-            
-        if self.path == '/info':
+        
+        elif self.path == '/info':
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
@@ -32,17 +31,18 @@ class SimpleBaseHTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(response_json.encode())
             return
 
-        if self.path == '/':
+        elif self.path == '/':
             self.send_response(200)
             self.send_header("Content-Type", "text/html")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
             return
-
-        self.send_response(404)
-        self.send_header("Content-Type", "text/html")
-        self.end_headers()
-        self.wfile.write(b"404 Not Found")
+        
+        else:
+            self.send_response(404)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            self.wfile.write(b"404 Not Found")
  
 
 def run(server_class=HTTPServer, handler_class=SimpleBaseHTTPRequestHandler, port=8000):
