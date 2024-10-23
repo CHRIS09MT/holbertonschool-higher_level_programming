@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
-class RequestHandler(BaseHTTPRequestHandler):
+class SimpleBaseHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         
         if self.path == "/":
@@ -42,7 +42,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(b"404 Not Found")
             return
         
-def run(server_class=HTTPServer, handler_class=RequestHandler, port=8000):
+def run(server_class=HTTPServer, handler_class=SimpleBaseHTTPRequestHandler, port=8000):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print(f'Server running on port {port}...')
