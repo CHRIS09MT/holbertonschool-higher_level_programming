@@ -1,30 +1,52 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
-class SimpleBaseHTTPRequestHandler(BaseHTTPRequestHandler):
-
+class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        routes = {
-            '/data': lambda: self.send_json_response({"name": "John", "age": 30, "city": "New York"}),
-            '/status': lambda: self.send_text_response("OK"),
-            '/info': lambda: self.send_json_response({"version": "1.0", "description": "A simple API built with http.server"}),
-            '/': lambda: self.send_text_response("Hello, this is a simple API!", content_type="text/html"),
-            }
         
-        handler = routes.get(self.path)
-        if handler:
-            handler()
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            self.wfile.write(b"Hello, this is a simple API!")
+            return
+        
+        elif self.path == "/data":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            data = {"name": "John", "age": 30, "city": "New York"}
+            self.wfile.write(json.dumps(data).encode('utf-8'))
+            return
+        
+        elif self.path == "/info":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            info = {"version": "1.0", "description": "A simple API built with http.server"}
+            self.wfile.write(json.dumps(info).encode('utf-8'))
+            return
+            
+            
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"OK")
+            return
+            
         else:
-            error_message = f"404 Not Found: {self.path}"
-            self.send_text_response(error_message, status=404, content_type="text/html")
-
-
- 
-
-def run(server_class=HTTPServer, handler_class=SimpleBaseHTTPRequestHandler, port=8000):
+            self.send_response(404)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            self.wfile.write(b"404 Not Found")
+            return
+        
+def run(server_class=HTTPServer, handler_class=RequestHandler, port=8000):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print(f'Server running on port {port}...')
     httpd.serve_forever()
+    
 if __name__ == '__main__':
     run()
