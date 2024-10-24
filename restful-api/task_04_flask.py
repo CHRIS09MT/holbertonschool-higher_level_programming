@@ -13,6 +13,8 @@ def home():
 
 @app.route("/data")
 def get_users():
+    if not users:
+        return jsonify({"message": "No users found"}), 404
     return jsonify(users)
 
 
@@ -26,10 +28,9 @@ def get_user(username):
     
     user = users.get(username)
     
-    if user:
-        return jsonify(users)
-    else:
+    if not user:
         return jsonify({"error": "User not found"}), 404
+    return jsonify(users)
 
 
 @app.route("/add_user", methods=["POST"])
