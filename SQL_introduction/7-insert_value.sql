@@ -2,4 +2,4 @@
 -- because Batch 3 is the best!
 INSERT INTO first_table (id, name)
        VALUES
-       (98, 'Best School');
+       (89, 'Best School');
