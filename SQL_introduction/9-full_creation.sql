@@ -3,10 +3,9 @@
 DROP TABLE IF EXISTS second_table;
 
 CREATE TABLE IF NOT EXISTS second_table (
-       id INT AUTO_INCREMENT,
+       id INT AUTO_INCREMENT PRIMARY KEY,
        name VARCHAR(50),
-       score INT,
-       PRIMARY KEY (id)
+       score INT
 );
 
 INSERT INTO second_table (name, score)
